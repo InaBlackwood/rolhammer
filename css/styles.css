@@ -1,0 +1,185 @@
+body {
+    background-color:black;
+}
+
+.header-area .main-nav .nav {
+    display: inline-flex;
+    flex-basis: 70%;
+    justify-content: flex-end;
+    vertical-align: middle;
+    text-align: right;
+    margin-top: 0px;
+    margin-right: 0px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    position: relative;
+    z-index: 999;
+}
+
+.header-area .main-nav .nav li {
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-block;
+}
+
+.header-area .main-nav .nav li a {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: #666;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    border: transparent;
+    padding: 13px 10px;
+    border-radius: 18px;
+    letter-spacing: .3px;
+}
+
+@font-face {
+    font-family: text1;
+    src: url(./fonts/CasablancaAntique.ttf);
+}
+@font-face {
+    font-family: text2;
+    src: url(./fonts/CaslonAntique.ttf);
+}
+@font-face {
+    font-family: text2-bold;
+    src: url(./fonts/CaslonAntique-Bold.ttf);
+}
+@font-face {
+    font-family: text2-italic;
+    src: url(./fonts/CaslonAntique-Italic.ttf);
+}
+@font-face {
+    font-family: mainMenu;
+    src: url(./fonts/OPTIFurst.otf);
+}
+@font-face {
+    font-family: mainMenu-bold;
+    src: url(./fonts/OPTIFurst-Bold.otf);
+}
+@font-face {
+    font-family: capital;
+    src: url(./fonts/DSFetteGotisch.ttf);
+}
+@font-face {
+    font-family: tittle;
+    src: url(./fonts/Moria_DF.TTF);
+}
+
+#maintitle {
+    margin: 0;
+    height: 75vh;
+    display: flex;
+    /*align-items: center;
+    justify-content: center;*/
+    background-color: black;
+
+}
+
+.neon {
+
+    /*overflow: hidden;
+    filter: brightness(200%);
+    margin: 0 auto;*/
+    animation: showall 500ms linear;
+    animation-iteration-count:1;
+    animation-fill-mode: forwards;
+    animation-delay: 4s;
+    position:absolute;
+    left: 25%;
+    top: 25%;
+
+}
+
+.text {
+    /*
+    background-color: grey;
+    color: white;*/
+    font-size: 5em;
+    font-family: tittle;
+    text-transform: uppercase;
+    position: relative;
+    user-select: none;
+
+    display: block;
+    will-change: filter, color;
+    filter: saturate(60%);
+    animation: flash linear 3s;
+    animation-iteration-count: 1;
+}
+
+.text::before {
+    content: attr(data-text);
+    position: absolute;
+    color: white;
+    filter: blur(0.02em);
+    mix-blend-mode: difference;
+}
+
+.spotlight {
+    opacity:0;
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    right: 0px;
+    bottom: 0px;
+    background:
+            radial-gradient(
+                    circle,
+                    white,
+                    transparent 25%
+            ) center / 25% 25%,
+            radial-gradient(
+                    circle,
+                    white,
+                    black 25%
+            ) center / 12.5% 12.5%;
+    animation: light 4s linear;
+    animation-iteration-count:1;
+    mix-blend-mode: color-dodge;
+}
+
+.gradient {
+    position: absolute;
+    background: linear-gradient(45deg, red, gold, darkred, gold, red);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mix-blend-mode: multiply;
+    margin-left: -15px;
+}
+
+@keyframes light {
+    from {
+        opacity:1;
+    }
+    to {
+        transform: translate(50%, 50%);
+        opacity:0;
+    }
+}
+
+@keyframes flash {
+    50% {
+        color: black;
+        filter: saturate(500%) hue-rotate(20deg);
+        text-shadow: #FC0 1px 0 10px;
+    }
+}
+
+@keyframes showall {
+    to {
+        position:absolute;
+        left:35%;
+        top: 0;
+        font-size: 3em;
+    }
+}
